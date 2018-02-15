@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    padding-top: 90px;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+nav.navbar {
+    background-color: #227093;
+}
+
+.navbar-brand {
+    color: #FFF;
+}
+
+a.nav-link.user-icon {
+    color: #FFF;
+}

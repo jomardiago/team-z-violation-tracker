@@ -1,0 +1,67 @@
+<div class="container" *ngIf="!selectedViolation">
+  <div class="row">
+    <div class="col-12">
+      <h3>Instructions</h3>
+      <p>To <em>add</em> new violation, click the <strong>'Add Violation'</strong> button and input violation details.</p>
+      <p>To <em>view</em> a specific violation, <strong>click the row</strong> you want to view.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="selectedViolation">
+  <form>
+    <div class="form-group">
+    <label for="violationType" class="col col-md-2 col-sm-12 col-xs-12 col-form-label">Violation Type</label>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+      <select class="form-control" id="violationType" [(ngModel)]="selectedViolation.violationType" (change)="violationTypeChanged(selectedViolation.violationType)">
+        <option value="{{vType.name}}" *ngFor="let vType of violationTypes">{{vType.name}}</option>
+      </select>
+    </div>
+  </div>
+  </form>
+  <div class="form-group">
+    <label for="equivalentPoints" class="col col-md-2 col-sm-12 col-xs-12 col-form-label">Equivalent Points</label>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+      <input type="text" id="equivalentPoints" name="equivalentPoints" class="form-control" [(ngModel)]="selectedViolation.equivalentPoints" disabled>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="currentPoints" class="col col-md-2 col-sm-12 col-xs-12 col-form-label">Current Points</label>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+      <input type="text" id="currentPoints" name="currentPoints" [(ngModel)]="outstandingPoints" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="totalPoints" class="col col-md-2 col-sm-12 col-xs-12 col-form-label">Total Points</label>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+      <input type="text" id="totalPoints" name="totalPoints" [(ngModel)]="totalPoints" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="startDate" class="col col-md-2 col-sm-12 col-xs-12 col-form-label">Start Date</label>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              <img src="https://ng-bootstrap.github.io/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+            </button>
+          </div>
+          <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" [(ngModel)]="selectedViolation.startDate" ngbDatepicker #d="ngbDatepicker">
+        </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="endDate" class="col col-md-2 col-sm-12 col-xs-12 col-form-label">Expiry Date</label>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+      <input type="text" id="endDate" name="endDate" [(ngModel)]="selectedViolation.endDate" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col col-md-2 col-sm-12 col-xs-12"></div>
+    <div class="col col-md-10 col-sm-12 col-xs-12">
+        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-warning" (click)="resetFields()">Reset Fields</button>
+    </div>
+  </div>
+</div>

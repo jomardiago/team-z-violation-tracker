@@ -1,0 +1,60 @@
+<div class="container" *ngIf="false">
+  <div class="row">
+    <div class="col-12">
+      <h3>Instructions</h3>
+      <p>To <strong><em>Add</em></strong> new violation, click the <em>'Add Violation'</em> button and input violation details.</p>
+      <p>To <strong><em>Delete</em></strong> an existing violation, click the violation on the table and press <em>'Delete'</em> button on bottom of the form.</p>
+      <p>To <strong><em>Update</em></strong> an existing violation, click the violation on the table and edit the details on the form.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div style="margin-bottom: 20px;">
+        <h1>Outstanding Points: {{outstandingPoints}}</h1>
+        <button class="btn btn-primary" (click)="addViolation()">Add Violation</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Violation Type</th>
+              <th>Corresponding Points</th>
+              <th>Start Date</th>
+              <th>Expiration Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let violation of violations" style="cursor: pointer;" (click)="handleRowClicked(violation.key, violation.values)" [ngClass]="{'is-selected': violationClassHolder == violation.values}">
+              <td>{{violation.values.violationType}}</td>
+              <td>{{violation.values.equivalentPoints}}</td>
+              <td>{{violation.values.startDate}}</td>
+              <td>{{violation.values.endDate}}</td>
+              <td>On Going</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <br>
+      <app-violation-input-form 
+        [selectedViolation]="selectedViolation" 
+        [outstandingPoints]="outstandingPoints"
+        [addViolationTag]="addViolationTag"
+        [violationKey]="violationKey"
+        [violationsObservable]="violations">
+      </app-violation-input-form>
+    </div>
+  </div>
+</div>

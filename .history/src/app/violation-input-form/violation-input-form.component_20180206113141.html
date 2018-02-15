@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="form-group row">
+    <label for="violationType" class="col-2 col-form-label">Violation Type</label>
+    <div class="col-10">
+      <select class="form-control" id="violationType">
+        <option>Please select violation type</option>
+        <option>Absent</option>
+        <option>Tardy (Below 45 Minutes)</option>
+        <option>Tardy (Above 45 Minutes)</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="equivalentPoints" class="col-2 col-form-label">Equivalent Points</label>
+    <div class="col-10">
+      <input type="text" id="equivalentPoints" name="equivalentPoints" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="currentPoints" class="col-2 col-form-label">Current Points</label>
+    <div class="col-10">
+      <input type="text" id="currentPoints" name="currentPoints" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="totalPoints" class="col-2 col-form-label">Total Points</label>
+    <div class="col-10">
+      <input type="text" id="totalPoints" name="totalPoints" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="startDate" class="col-2 col-form-label">Start Date</label>
+    <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              <img src="https://ng-bootstrap.github.io/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+            </button>
+          </div>
+          <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" ngbDatepicker #d="ngbDatepicker">
+        </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="expiryDate" class="col-2 col-form-label">Expiry Date</label>
+    <div class="col-10">
+      <input type="text" id="expiryDate" name="expiryDate" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Save</button>
+  </div>
+</div>

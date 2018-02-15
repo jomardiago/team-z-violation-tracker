@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+    padding-top: 90px;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+nav.navbar {
+    background-color: #778ca3;
+}
+
+.navbar-brand {
+    color: #FFF;
+    font-weight: 600;
+}
+
+a.nav-link.user-icon {
+    color: #FFF;
+    font-weight: 600;
+}
+
+.is-selected {
+    background-color: #a5b1c2;
+    color: #FFF;
+}

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="form-group row">
+    <label for="violationType" class="col-2 col-form-label">Violation Type</label>
+    <div class="col-10">
+      <select class="form-control" id="violationType">
+        <option>Please select violation type</option>
+        <option>Absent</option>
+        <option>Tardy (Below 45 Minutes)</option>
+        <option>Tardy (Above 45 Minutes)</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="equivalentPoints" class="col-2 col-form-label">Equivalent Points</label>
+    <div class="col-10">
+      <input type="text" id="equivalentPoints" name="equivalentPoints" class="form-control" disabled>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="startDate" class="col-2 col-form-label">Start Date</label>
+    <div class="col-10">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+            <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </button>
+        </div>
+    </div>
+  </div>
+</div>

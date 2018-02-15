@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div style="margin-bottom: 20px;">
+        <p><strong>Outstanding Points: {{outstandingPoints}}</strong></p>
+        <button class="btn btn-primary" (click)="addViolation()">Add Violation</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>Violation Type</th>
+            <th>Corresponding Points</th>
+            <th>Start Date</th>
+            <th>Expiration Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let violation of violations" style="cursor: pointer;" (click)="handleRowClicked(violation)" [ngClass]="{'is-selected': violationClassHolder == violation}">
+            <td>{{violation.violationType}}</td>
+            <td>{{violation.equivalentPoints}}</td>
+            <td>{{violation.startDate}}</td>
+            <td>{{violation.endDate}}</td>
+            <td>On Going</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <br>
+      <app-violation-input-form [selectedViolation]="selectedViolation" [outstandingPoints]="outstandingPoints" [totalPoints]="outstandingPoints"></app-violation-input-form>
+    </div>
+  </div>
+</div>
